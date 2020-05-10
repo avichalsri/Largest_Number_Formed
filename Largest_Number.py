@@ -1,13 +1,17 @@
+def largestNumber(array): 
+    extval, ans = [], "" 
+    l = len(str(max(array))) + 1
+    for i in array: 
+        temp = str(i) * l 
+        extval.append((temp[:l:], i)) 
+    extval.sort(reverse = True) 
+    
+    for i in extval: 
+        ans += str(i[1])     
+    return ans 
+
 n=int(input())
 a=list(input().split())
-a=sorted(a,reverse=True)
-for i in range(n-1):
-    x=a[i]+a[i+1]
-    y=a[i+1]+a[i]
-    if (int(x)>int(y)):
-        a[i+1]=x
-    else:
-        a[i+1]=y
-print(a[n-1])
+print(largestNumber(a))
     
     
